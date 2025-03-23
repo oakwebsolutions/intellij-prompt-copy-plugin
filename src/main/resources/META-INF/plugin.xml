@@ -15,4 +15,31 @@
     <applicationListeners>
         <listener class="com.github.paulknisely.intellijpromptcopyplugin.listeners.MyApplicationActivationListener" topic="com.intellij.openapi.application.ApplicationActivationListener"/>
     </applicationListeners>
+
+    <actions>
+        <action
+            id="PromptCopy.CopyOpenFiles"
+            class="com.github.paulknisely.intellijpromptcopyplugin.actions.CopyOpenFilesAction"
+            text="Copy All Open Files to Clipboard"
+            description="Copy all open files to clipboard in a format suitable for prompts"
+        >
+            <!-- Add to editor tab context menu -->
+            <add-to-group group-id="EditorTabPopupMenu" anchor="last"/>
+            <!-- Add to main editor context menu -->
+            <add-to-group group-id="EditorPopupMenu" anchor="last"/>
+            <!-- Add to Tools menu -->
+            <add-to-group group-id="ToolsMenu" anchor="last"/>
+            <!-- Keyboard shortcut -->
+            <keyboard-shortcut keymap="$default" first-keystroke="shift ctrl alt O"/>
+        </action>
+        <action
+            id="PromptCopy.CopyToClipboard"
+            class="com.github.paulknisely.intellijpromptcopyplugin.actions.CopySelectedFilesAction"
+            text="Copy Selected Files to Clipboard"
+            description="Copy selected files content to clipboard in a format suitable for prompts"
+        >
+            <add-to-group group-id="ProjectViewPopupMenu" anchor="last"/>
+            <keyboard-shortcut keymap="$default" first-keystroke="shift ctrl alt C"/>
+        </action>
+    </actions>
 </idea-plugin>
