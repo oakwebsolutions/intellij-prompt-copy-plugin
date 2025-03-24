@@ -18,6 +18,19 @@
 
     <actions>
         <action
+            id="PromptCopy.CopyCurrentFile"
+            class="com.github.paulknisely.intellijpromptcopyplugin.actions.CopyCurrentFileAction"
+            text="Copy Current File to Clipboard"
+            description="Copy the current file content to clipboard in a format suitable for prompts"
+        >
+            <!-- Add to editor tab context menu -->
+            <add-to-group group-id="EditorTabPopupMenu" anchor="last"/>
+            <!-- Add to main editor context menu -->
+            <add-to-group group-id="EditorPopupMenu" anchor="last"/>
+            <!-- Keyboard shortcut -->
+            <keyboard-shortcut keymap="$default" first-keystroke="shift ctrl alt F"/>
+        </action>
+        <action
             id="PromptCopy.CopyOpenFiles"
             class="com.github.paulknisely.intellijpromptcopyplugin.actions.CopyOpenFilesAction"
             text="Copy All Open Files to Clipboard"
