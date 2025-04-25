@@ -83,7 +83,7 @@ abstract class BaseFileCopyAction(text: String) : AnAction(text) {
             builder.append(extension)
 
             // Read and append file content
-            val content = file.inputStream.reader(Charsets.UTF_8).use { it.readText() }
+            val content = String(file.inputStream.readBytes(), Charsets.UTF_8)
             builder.append(content)
 
             // Close code fence and add spacing

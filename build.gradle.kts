@@ -16,7 +16,7 @@ version = providers.gradleProperty("pluginVersion").get()
 
 // Set the JVM language level used to build the project.
 kotlin {
-    jvmToolchain(17)
+    jvmToolchain(21)
 }
 
 // Configure project's dependencies
@@ -132,6 +132,22 @@ tasks {
 
     publishPlugin {
         dependsOn(patchChangelog)
+    }
+
+    // Disable searchable options tasks
+    buildSearchableOptions {
+        enabled = false
+    }
+
+    prepareJarSearchableOptions {
+        enabled = false
+    }
+
+    // Update the deprecated kotlinOptions to the new syntax
+    compileKotlin {
+        compilerOptions {
+            freeCompilerArgs.add("-Xskip-metadata-version-check")
+        }
     }
 }
 
